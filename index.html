@@ -6,19 +6,28 @@
     </head>
     <body>
         <div id="wrapper">
-            <header>Pomodoro Timer</header>
-            <div id="pWrapper">
-                <p>This is a Pomodoro Timer, which is intended to improve your productivity! Hit start to begin!</p>
+            <div id="secondWrapper">
+                <header>Pomodoro Timer</header>
+                <div id="counterWrapper">
+                    <table>
+                        <tr>
+                            <th>Work Counter</th>
+                            <th>Break Counter</th>
+                        </tr>
+                        <tr>
+                            <td id = "workCounter">0</td>
+                            <td id = "breakCounter">0</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="timer"></div>
+
+                <div id="buttonContainer">
+                    <button id="startBtn">Start</button>
+                    <button id="pauseBtn">Pause</button>
+                </div>
             </div>
-
-            <div id="timer"></div>
-
-            <div id="buttonContainer">
-                <button id="startBtn">Start</button>
-                <button id="stopBtn">Stop</button>
-            </div>
-
-            <div id="counter"></div>
         </div>
         <script src="scripts.js"></script>
     </body>
