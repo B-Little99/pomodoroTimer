@@ -4,9 +4,11 @@ let pause = document.getElementById("pauseBtn");
 let header = document.querySelector("header");
 let wrapper = document.getElementById("secondWrapper");
 
+// Used in the table to indicate how much the user has worked
 let wCounter = document.getElementById("workCounter");
 let bCounter = document.getElementById("breakCounter");
 
+// Variables needed. E.g. the worktime automatically sets the work timer to be 25 minutes and the break time as 5 minutes.
 let status = "work";
 let counter = 0;
 let workTime = 25*60;
@@ -14,8 +16,10 @@ let breakTime = 5*60;
 let beginTimer;
 let beginBreak;
 
+// This sets the initial time so when the user loads the page they see the timer is at 25 minutes.
 timer.innerHTML = "25:00";
 
+// This function is used to determine if the colour scheme should change when the status changes.
 function indication(){
     if (status === "break"){
         header.className += " red";
@@ -34,12 +38,12 @@ function indication(){
 
 // These functions start the work/break sessions for the user.
 function startWorkTimer(){
-    beginTimer = setInterval(workTimer, 1);
+    beginTimer = setInterval(workTimer, 1000);
     indication();
 }
 
 function startBreakTimer(){
-    beginBreak = setInterval(breakTimer, 1);
+    beginBreak = setInterval(breakTimer, 1000);
     indication();
 }
 
@@ -106,6 +110,7 @@ function workTimer() {
     }
 }
 
+// This is used to initiate the functions as before during a break if you resumed you actually restarted the 25 minutes and did not resume your break.
 function decideTimer(){
     if (status === "work"){
         startWorkTimer();
@@ -119,18 +124,3 @@ start.addEventListener("click", decideTimer);
 pause.addEventListener("click", pauseWork);
 pause.addEventListener("click", pauseBreak);
 pause.addEventListener("click", enableStartButton);
-
-
-
-
-/*
-TDL:
-
-Resolve clicking start more than once. Disable start after first click, then change text if you pause it so you can use the same button to resume.
-
-Add class for the different timer: break or work
-
-make it centered in the page
-
-
-*/
